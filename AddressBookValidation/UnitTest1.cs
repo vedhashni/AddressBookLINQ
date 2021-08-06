@@ -36,5 +36,16 @@ namespace AddressBookValidation
             var actual = contactData.ModifyDataTableUsingName("Priya", "LastName");
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// UC5--->Delete a Person Using FirstName Column
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForDeleteDataUsingName()
+        {
+            bool expected = true;
+            var actual = contactData.DeleteRecordUsingName("Vishnu");
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

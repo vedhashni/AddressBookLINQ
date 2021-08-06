@@ -111,6 +111,17 @@ namespace AddressBookLINQ
             InsertintoDataTable(contactDataManagers);
             //Returning the count of inserted data
             return dataTable.Rows.Count;
+
+            contactDataManagers.firstName = "Vishnu";
+            contactDataManagers.lastName = "Priya";
+            contactDataManagers.phoneNumber = 8975214458;
+            contactDataManagers.emailId = "vishnu@gmail.com";
+            contactDataManagers.address = "Sjce Campus Road.";
+            contactDataManagers.city = "Mysore";
+            contactDataManagers.state = "Karanataka";
+            contactDataManagers.zipCode = 542874;
+            InsertintoDataTable(contactDataManagers);
+            return dataTable.Rows.Count;
         }
         /// <summary>
         /// UC3-Insert the data in table
@@ -154,6 +165,27 @@ namespace AddressBookLINQ
             if (modifiedList != null)
             {
                 modifiedList[ColumnName] = "Swetha";
+                Display();
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// UC5--->Delete a Person Using FirstName Column
+        /// </summary>
+        /// <param name="FirstName"></param>
+        /// <returns></returns>
+        public bool DeleteRecordUsingName(string FirstName)
+        {
+            //Calling the add values to data table
+            AddValues();
+            //performing delete operation using linq
+            var modifiedList = (from Contact in dataTable.AsEnumerable() where Contact.Field<string>("FirstName") == FirstName select Contact).FirstOrDefault();
+            if (modifiedList != null)
+            {
+                modifiedList.Delete();
+                Console.WriteLine("******* After Deletion ******");
                 Display();
                 return true;
             }

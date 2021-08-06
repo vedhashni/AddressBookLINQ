@@ -17,8 +17,11 @@ namespace AddressBookLINQ
             //contactDataManager.AddValues();
             //contactDataManager.Display();
 
-            contactDataManager.ModifyDataTableUsingName("Raju", "LastName");
+            //contactDataManager.ModifyDataTableUsingName("Raju", "LastName");
 
+            contactDataManager.DeleteRecordUsingName("Vishnu");
         }
+
+    }
     }
 }
