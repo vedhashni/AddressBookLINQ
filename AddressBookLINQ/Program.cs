@@ -11,6 +11,12 @@ namespace AddressBookLINQ
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book using linq");
+
+            ContactDataManager contactDataManager = new ContactDataManager();
+            contactDataManager.CreateDataTable();
+            contactDataManager.AddValues();
+            contactDataManager.Display();
+
         }
     }
 }
